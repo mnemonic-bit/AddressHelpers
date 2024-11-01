@@ -9,47 +9,59 @@ namespace AddressHelpers.Tests
         public void GetAddress_ShouldReturnSameAddress_WhenReferenceTypeIsUsed()
         {
             var someClass = new SomeClass();
-            var longAddress2 = AddressExtensions.GetAddr(someClass);
-            var longAddress3 = GetAddressOfParameter2(someClass);
-            var longAddress4 = GetAddressOfRefParameter2(ref someClass);
+            var longAddress1 = AddressExtensions.GetAddress(someClass);
+            var longAddress2 = GetAddressOfParameter2(someClass);
+            var longAddress3 = GetAddressOfRefParameter2(ref someClass);
 
+            longAddress1.Should().Be(longAddress2);
             longAddress2.Should().Be(longAddress3);
-            longAddress3.Should().Be(longAddress4);
         }
 
         [Fact]
-        public void GetAddress_ShouldReturnSameAddress_WhenValueTypeIsUsed()
+        public void GetAddress_ShouldReturnSameAddress_WhenValueTypeIsUsed1()
         {
             var someStruct = new SomeStruct();
-            var longAddress1 = AddressExtensions.GetAddr(ref someStruct);
-            var longAddress3 = GetAddressOfParameter3(ref someStruct);
-            var longAddress4 = GetAddressOfRefParameter3(ref someStruct);
+            var longAddress1 = AddressExtensions.GetAddress(ref someStruct);
+            var longAddress2 = GetAddressOfParameter3(ref someStruct);
+            var longAddress3 = GetAddressOfRefParameter3(ref someStruct);
 
-            longAddress1.Should().Be(longAddress3);
-            longAddress3.Should().Be(longAddress4);
+            longAddress1.Should().Be(longAddress2);
+            longAddress2.Should().Be(longAddress3);
+        }
+
+        [Fact]
+        public void GetAddress_ShouldReturnSameAddress_WhenValueTypeIsUsed2()
+        {
+            var someValue = 42;
+            var longAddress1 = AddressExtensions.GetAddress(ref someValue);
+            var longAddress2 = GetAddressOfParameter3(ref someValue);
+            var longAddress3 = GetAddressOfRefParameter3(ref someValue);
+
+            longAddress1.Should().Be(longAddress2);
+            longAddress2.Should().Be(longAddress3);
         }
 
 
         private long GetAddressOfParameter2<T>(T obj)
         {
-            return AddressExtensions.GetAddr(obj);
+            return AddressExtensions.GetAddress(obj);
         }
 
         private long GetAddressOfRefParameter2<T>(ref T obj)
         {
-            return AddressExtensions.GetAddr(obj);
+            return AddressExtensions.GetAddress(obj);
         }
 
         private long GetAddressOfParameter3<T>(ref T obj)
             where T : struct
         {
-            return AddressExtensions.GetAddr(ref obj);
+            return AddressExtensions.GetAddress(ref obj);
         }
 
         private long GetAddressOfRefParameter3<T>(ref T obj)
             where T : struct
         {
-            return AddressExtensions.GetAddr(ref obj);
+            return AddressExtensions.GetAddress(ref obj);
         }
 
 

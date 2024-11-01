@@ -10,8 +10,8 @@ To get the address of a class, we can use the GetAddress() method of AddressExte
 which is
 
 ```
-var theInstance = new SomeClass();
-var addressOfTheInstance = AddressExtensions.GetAddress(theInstance);
+var someClass = new SomeClass();
+var address = AddressExtensions.GetAddress(someClass);
 ```
 
 Value types are a bit trickier, though, because we must take care to pass a reference
@@ -19,7 +19,13 @@ instead of a copy of that object. The following example shows how to get the sta
 address of a value type:
 
 ```
-var someNumber = 42;
-var addressOfSomeNumber = AddressExtensions.GetAddress(ref someNumber);
+var someValue = 42;
+var address = AddressExtensions.GetAddress(ref someValue);
 ```
 
+or for that matter, even complex value types, i.e. structs:
+
+```
+var someStruct = new SomeStruct();
+var address = AddressExtensions.GetAddress(ref someStruct);
+```

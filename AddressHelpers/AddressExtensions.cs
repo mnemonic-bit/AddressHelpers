@@ -10,7 +10,7 @@ namespace AddressHelpers
         /// </summary>
         /// <param name="obj">The instance we want an address for.</param>
         /// <returns>Returns a long integer value representing the memory address of the instance.</returns>
-        public static unsafe long GetAddr(object obj)
+        public static unsafe long GetAddress(object obj)
         {
             GCHandle handle = GCHandle.Alloc(obj, GCHandleType.Pinned);
 
@@ -35,7 +35,7 @@ namespace AddressHelpers
         /// <typeparam name="T">The type of the value type.</typeparam>
         /// <param name="value">The value, passed by-ref.</param>
         /// <returns>Returns a long integer value representing the memory address of the value.</returns>
-        public static unsafe long GetAddr<T>(ref T value)
+        public static unsafe long GetAddress<T>(ref T value)
             where T : struct
         {
             fixed (T* ptr = &value)
