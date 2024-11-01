@@ -41,6 +41,16 @@ namespace AddressHelpers.Tests
             longAddress2.Should().Be(longAddress3);
         }
 
+        [Fact]
+        public void Test()
+        {
+            SomeStruct someStruct = new SomeStruct();
+            long address1 = AddressExtensions.GetAddress(ref someStruct);
+            long address2 = someStruct.GetAddress();
+
+            address1.Should().Be(address2);
+        }
+
 
         private long GetAddressOfParameter2<T>(T obj)
         {
@@ -80,6 +90,11 @@ namespace AddressHelpers.Tests
             public SomeStruct() { }
 
             public bool SomeMethod() => true;
+
+            public long GetAddress()
+            {
+                return AddressExtensions.GetAddress(ref this);
+            }
 
         }
 
