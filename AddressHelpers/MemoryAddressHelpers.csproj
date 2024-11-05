@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
-    <Version>0.2.2</Version>
+    <Version>1.0.0</Version>
 
     <Title>Makes memory addresses visible in C#.</Title>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -17,11 +17,11 @@
     <Copyright>Marco Ruether</Copyright>
     <PackageReadmeFile>README.md</PackageReadmeFile>
 
-    <AssemblyName>AddressHelpers</AssemblyName>
-    <RootNamespace>AddressHelpers</RootNamespace>
+    <AssemblyName>MemoryAddressHelpers</AssemblyName>
+    <RootNamespace>MemoryAddressHelpers</RootNamespace>
     <Nullable>enable</Nullable>
 
-    <PackageId>AddressHelpers</PackageId>
+    <PackageId>MemoryAddressHelpers</PackageId>
     <Description>This library provides helpers to show the actual address of an instance.</Description>
     <PackageTags>Memroy, Address</PackageTags>
     <IsPackable>true</IsPackable>
