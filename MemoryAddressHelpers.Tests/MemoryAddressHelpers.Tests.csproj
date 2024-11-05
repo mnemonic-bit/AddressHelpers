@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AddressHelpers\MemoryAddressHelpers.csproj" />
+    <ProjectReference Include="..\MemoryAddressHelpers\MemoryAddressHelpers.csproj" />
   </ItemGroup>
 
   <ItemGroup>
